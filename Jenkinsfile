@@ -1,9 +1,9 @@
 pipeline {
   agent none
   stages {
-    stage('docker image') {
+    stage('check docker') {
       steps {
-        sh 'docker build -t ubuntu-apache2:1.0 .'
+        sh 'docker --version'
       }
     }
 
