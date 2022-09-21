@@ -30,6 +30,13 @@ pipeline {
       }
     }
 
+    stage('docker image build') {
+      steps {
+        sh '''cd michal-rudzki/docker
+docker build -t ubuntu-apache2:1.0 .'''
+      }
+    }
+
   }
   environment {
     GITHUB_TOKEN = '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'
