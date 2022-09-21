@@ -13,8 +13,19 @@ pipeline {
     }
 
     stage('checking hostname') {
-      steps {
-        sh 'hostname'
+      parallel {
+        stage('checking hostname') {
+          steps {
+            sh 'hostname'
+          }
+        }
+
+        stage('clone repo') {
+          steps {
+            sh 'git clone https://GITHUB_TOKEN@github.com/michal-rudzki/michal-rudzki.git'
+          }
+        }
+
       }
     }
 
