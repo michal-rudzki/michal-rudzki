@@ -32,8 +32,10 @@ pipeline {
 
     stage('docker image build') {
       steps {
-        sh 'cd michal-rudzki/docker'
-        sh 'docker build -t ubuntu-apache2:1.0 .'
+        dir(path: 'michal-rudzki/docker') {
+          sh 'ls -la'
+        }
+
       }
     }
 
