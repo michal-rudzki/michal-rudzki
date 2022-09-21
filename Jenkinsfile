@@ -19,4 +19,7 @@ pipeline {
     }
 
   }
+  environment {
+    GITHUB_TOKEN = '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'
+  }
 }
