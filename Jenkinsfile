@@ -22,6 +22,7 @@ pipeline {
 
         stage('clone repo') {
           steps {
+            sh 'rm -rf *'
             sh 'git clone https://GITHUB_TOKEN@github.com/michal-rudzki/michal-rudzki.git'
           }
         }
