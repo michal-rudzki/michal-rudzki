@@ -36,6 +36,7 @@ pipeline {
           sh 'docker build -t ubuntu-apache2:1.0 .'
         }
 
+        sh 'docker container run --rm -d --name Web2.0 7080:80 -d ubuntu-apache2:1.0 '
       }
     }
 
