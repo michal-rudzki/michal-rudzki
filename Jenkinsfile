@@ -36,8 +36,7 @@ then
     docker image rm $line -f
   done
   echo "Images are remove..."
-fi
-'''
+fi'''
           }
         }
 
