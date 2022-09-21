@@ -7,19 +7,14 @@ pipeline {
   }
   stages {
     stage('check docker') {
-      parallel {
-        stage('check docker') {
-          steps {
-            sh 'docker --version'
-          }
-        }
+      steps {
+        sh 'docker --version'
+      }
+    }
 
-        stage('git clone') {
-          steps {
-            sh 'hostname'
-          }
-        }
-
+    stage('checking hostname') {
+      steps {
+        sh 'hostname'
       }
     }
 
