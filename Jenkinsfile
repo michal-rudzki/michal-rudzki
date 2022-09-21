@@ -33,7 +33,7 @@ pipeline {
     stage('docker image build') {
       steps {
         sh '''cd michal-rudzki/docker
-docker build -t ubuntu-apache2:1.0 .'''
+docker build -t ubuntu-apache2:1.0 . who'''
       }
     }
 
