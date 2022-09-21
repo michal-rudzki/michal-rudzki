@@ -2,5 +2,5 @@
 
 # Dictionary:
   - docker: Dockerfile
-  - project: myadpp Django project
+  - project: myapp Django project
   - apach2.conf: vhost configuration file
