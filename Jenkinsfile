@@ -16,7 +16,6 @@ pipeline {
 
         stage('git clone') {
           steps {
-            sh 'git clone git@github.com:michal-rudzki/michal-rudzki.git'
             sh 'hostname'
           }
         }
