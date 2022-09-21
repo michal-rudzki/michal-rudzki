@@ -65,7 +65,7 @@ fi
     stage('docker image build') {
       steps {
         dir(path: 'michal-rudzki/docker') {
-          sh 'docker build --no-cache -t ubuntu-apache2:1.0 .'
+          sh 'docker build -t ubuntu-apache2:1.0 .'
           sh 'docker container run --rm -d --name Web2.0 -p 7080:80 -d ubuntu-apache2:1.0 '
         }
 
