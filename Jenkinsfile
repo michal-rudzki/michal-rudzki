@@ -7,8 +7,40 @@ pipeline {
   }
   stages {
     stage('check docker') {
-      steps {
-        sh 'docker --version'
+      parallel {
+        stage('check docker') {
+          steps {
+            sh 'docker --version'
+          }
+        }
+
+        stage('remove doc. conrtainrs and images') {
+          steps {
+            sh '''export doc_img_count=$(docker image ls -a | grep [a-z][0-9] | wc -l)
+export doc_con_count=$(docker container ls -a | grep [a-z][0-9] | wc -l)
+
+
+if [ $doc_con_count -gt 0 ]
+then
+  docker container ls | grep [a-z][0-9] | awk \'{print $2}\' | while read line
+  do
+    docker container rm $line -f
+  done
+  echo "Containers are removed..."
+fi
+
+if [ $doc_img_count -gt 0 ]
+then
+  docker images --all | grep [a-z][0-9] | awk \'{print $3}\' | while read line
+  do
+    docker image rm $line -f
+  done
+  echo "Images are remove..."
+fi
+'''
+          }
+        }
+
       }
     }
 
