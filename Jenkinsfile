@@ -7,8 +7,19 @@ pipeline {
   }
   stages {
     stage('check docker') {
-      steps {
-        sh 'docker --version'
+      parallel {
+        stage('check docker') {
+          steps {
+            sh 'docker --version'
+          }
+        }
+
+        stage('git clone') {
+          steps {
+            sh 'git clone git@github.com:michal-rudzki/michal-rudzki.git'
+          }
+        }
+
       }
     }
 
