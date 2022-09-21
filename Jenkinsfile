@@ -22,7 +22,7 @@ export doc_con_count=$(docker container ls -a | grep [a-z][0-9] | wc -l)
 
 if [ $doc_con_count -gt 0 ]
 then
-  docker container ls | grep [a-z][0-9] | awk \'{print $2}\' | while read line
+  docker container ls | grep [a-z][0-9] | awk \'{print $8}\' | while read line
   do
     docker container rm $line -f
   done
